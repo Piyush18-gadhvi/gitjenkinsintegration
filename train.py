@@ -28,8 +28,10 @@ regr.fit(X_train, y_train)
 
 # Report training set score
 train_score = regr.score(X_train, y_train) * 100
+print("train_score", train_score)
 # Report test set score
 test_score = regr.score(X_test, y_test) * 100
+print("Test_score", test_score)
 
 # Write scores to a file
 with open("metrics.txt", 'w') as outfile:
