@@ -86,4 +86,4 @@ plt.tight_layout()
 plt.savefig("residuals.png",dpi=120)
 print("Everything Ran Succesfully in the py file")
 print(" Again trial to download only the changed file")
-
+#Check kro bhai check kro
