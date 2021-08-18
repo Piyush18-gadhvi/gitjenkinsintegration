@@ -23,9 +23,9 @@ pipeline {
                      
           }
           echo ".... " + foldersList
-            for (filess in foldersList) {
-                echo "........." + ${filess}
-          }
+            foldersList.each{
+            println "Computer ${it}"
+            }
         }            
       }
     }
