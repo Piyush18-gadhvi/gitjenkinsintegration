@@ -23,6 +23,7 @@ pipeline {
                      
           }
           echo ".... " + foldersList
+            bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=foldersList"'
         }            
       }
     }
