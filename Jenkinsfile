@@ -24,7 +24,7 @@ pipeline {
           }
           echo ".... " + foldersList
             for ( int i = 0; i < foldersList; i++) {
-                bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=foldersList[i]"'
+                echo "........." + foldersList[i]
         }            
       }
     }
