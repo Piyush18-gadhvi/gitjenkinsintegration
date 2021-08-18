@@ -24,7 +24,8 @@ pipeline {
           echo ".... " + foldersList
             foldersList.each{
             paths=${WORKSPACE} + {it}
-            bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=$paths"'
+                echo "paths"
+            bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=paths"'
             println "Computer ${it}"
             }
         }            
