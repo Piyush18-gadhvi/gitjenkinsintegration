@@ -4,7 +4,6 @@ pipeline {
     stage('Find all fodlers from given folder') {
       steps {
         script {
-          echo "This is start $(pwd)"
           def foldersList = []
                     
           def osName = isUnix() ? "UNIX" : "WINDOWS"
@@ -24,7 +23,8 @@ pipeline {
           }
           echo ".... " + foldersList
             foldersList.each{
-            bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=${it}"'
+            paths=${WORKSPACE} + {it}
+            bat 'curl --location --request POST "https://c5ef3e292c8f.ngrok.io/file-upload" -F "file=$paths"'
             println "Computer ${it}"
             }
         }            
