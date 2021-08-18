@@ -4,8 +4,6 @@ pipeline {
     stage('Find all fodlers from given folder') {
       steps {
         script {
-            def files = findFiles(glob: '**/*.txt') echo """${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}"""
-            echo "filenames" + files
           def foldersList = []
                     
           def osName = isUnix() ? "UNIX" : "WINDOWS"
@@ -14,11 +12,11 @@ pipeline {
           echo ".... JENKINS_HOME: ${WORKSPACE}"
     
           if(isUnix()) {
-            def output = sh returnStdout: true, script: "ls -l ${WORKSPACE} | grep ^d | awk '{print \$9}'"
+            def output = sh returnStdout: true, script: "ls -l ${JENKINS_HOME} | grep ^d | awk '{print \$9}'"
             foldersList = output.tokenize('\n').collect() { it }
           } else {
               echo "else"
-            def output = bat returnStdout: true, script: "dir \"${WORKSPACE}\" /b /A:D"
+            def output = bat returnStdout: true, script: "dir \"${JENKINS_HOME}\" /b /A:D"
             foldersList = output.tokenize('\n').collect() { it }
             foldersList = foldersList.drop(2)
                      
