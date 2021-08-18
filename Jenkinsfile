@@ -4,7 +4,7 @@ pipeline {
     stage('Find all fodlers from given folder') {
       steps {
         script {
-                    
+          sh "pwd"         
           def foldersList = []
                     
           def osName = isUnix() ? "UNIX" : "WINDOWS"
