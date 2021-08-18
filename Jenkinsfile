@@ -4,6 +4,7 @@ pipeline {
     stage('Find all fodlers from given folder') {
       steps {
         script {
+            def files = findFiles(glob: '**/*/') echo """${files[0].name} ${files[0].path} ${files[0].directory} ${files[0].length} ${files[0].lastModified}"""
           def foldersList = []
                     
           def osName = isUnix() ? "UNIX" : "WINDOWS"
