@@ -24,7 +24,7 @@ pipeline {
           }
           echo ".... " + foldersList
             for ( int i = 0; i < foldersList; i++) {
-                echo "........." + foldersList[i]
+                echo "........." + ${foldersList[i]}
           }
         }            
       }
