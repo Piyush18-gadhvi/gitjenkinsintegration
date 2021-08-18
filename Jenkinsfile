@@ -23,7 +23,7 @@ pipeline {
                      
           }
           echo ".... " + foldersList
-            for filess in foldersList {
+            for (filess in foldersList) {
                 echo "........." + ${filess}
           }
         }            
